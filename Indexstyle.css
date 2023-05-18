@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #272727;
+}
+.card {
+    position: relative;
+    width: 350px;
+    height: 190px;
+    background: #0f0f0f;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+.card:hover {
+    height: 450px;
+}
+.card .lines {
+    position: absolute;
+    inset: 0;
+    background: #0f0f0f;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.card .lines::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 120px;
+    border-radius: 10px;
+    background: linear-gradient(transparent,#00ccff,
+    #00ccff,#00ccff,transparent);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate {
+    0%
+    {
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100%
+    {
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}
+.card .lines::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: #0f0f0f;
+    border-radius: 10px;
+}
+.card .imgBox {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background: #272727;
+    transition: 0.5s;
+    z-index: 10;
+    overflow: hidden
+}
+.card:hover .imgBox {
+    width: 250px;
+    height: 250px;
+}
+.card .imgBox::before {
+    content: "";
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 150px;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background: linear-gradient(transparent,#fc0987,#d400d4,#69007f, transparent);
+    animation: animate2 6s linear infinite;
+}
+@keyframes animate2 {
+    0%
+    {
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+    100%
+    {
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+}
+.card .imgBox::after {
+    content: ""; 
+    position: absolute;
+    border-radius: 10px;
+    inset: 3px;
+    background: #0f0f0f;
+}
+.card .imgBox img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    border-radius: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    filter: grayscale(0);
+}
+.card .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+.card .content .details {
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    transition: 0.5s;
+    transform: translateY(145px);
+}
+.card:hover .content .details {
+    transform: translateY(0px);
+}
+.card .content .details h2 {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #00ccff;
+    line-height: 1.2em;
+}
+.card .content .details h2 span {
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #fff;
+}
+.card .content .details .data {
+    display: flex;
+    justify-content:center;
+    margin: 20px 0;
+}
+.card .content .details .data h3 {
+    font-size: 1em;
+    color: #00ccff;
+    line-height: 1.2em;
+    font-weight: 600;
+}
+.card .content .details .data h3 span {
+    font-size: 1em;
+    font-weight: 400;
+    color: #fff;
+}
+.button a {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(45deg,#00ccff,#69007f,#fc0987 );
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-size: 1.25em;
+}
+.button a span {
+    position: relative;
+    z-index: 1;
+}
+.button a::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: #0f0f0f;
+    border-radius: 9px;
+    transition: 0.5s;
+}
+.button a:hover::before {
+    opacity: 0.7;
+}
+/*glow effect*/
+a::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background: linear-gradient(45deg,#00ccff,#69007f,#fc0987);
+    border-radius: 9px;
+    transition: 0.5s;
+    opacity: 0;
+    filter: blur(7px);
+}
+a:hover::after {
+    opacity: 1;
+}
